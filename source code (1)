@@ -1,0 +1,86 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <string>
+
+using namespace std;
+//inheritance,access specifier,class.
+
+// Base class for weather report
+class WeatherReport {
+protected:
+    string weather;
+
+public:
+    WeatherReport(string w) : weather(w) {}
+
+    void displayReport() {
+        cout << "Weather Report: " << weather << endl;
+    }
+};
+
+// Derived classes for today, tomorrow, and yesterday
+class TodayWeatherReport : public WeatherReport {
+public:
+    TodayWeatherReport(string w) : WeatherReport(w) {}
+
+    void displayTodayReport() {
+        cout << "Today's Weather Report: " << weather << endl;
+    }
+};
+
+class TomorrowWeatherReport : public WeatherReport {
+public:
+    TomorrowWeatherReport(string w) : WeatherReport(w) {}
+
+    void displayTomorrowReport() {
+        cout << "Tomorrow's Weather Report: " << weather << endl;
+    }
+};
+
+class YesterdayWeatherReport : public WeatherReport {
+public:
+    YesterdayWeatherReport(string w) : WeatherReport(w) {}
+
+    void displayYesterdayReport() {
+        cout << "Yesterday's Weather Report: " << weather << endl;
+    }
+};
+
+int main() {
+    string name, college;
+    string todayWeather, tomorrowWeather, yesterdayWeather;
+
+    cout << "Enter your name: ";
+    getline(cin, name);
+
+    cout << "Enter your college name: ";
+    getline(cin, college);
+
+    cout << "Enter weather for today: ";
+    getline(cin, todayWeather);
+
+    cout << "Enter weather for tomorrow: ";
+    getline(cin, tomorrowWeather);
+
+    cout << "Enter weather for yesterday: ";
+    getline(cin, yesterdayWeather);
+
+    TodayWeatherReport todayReport(todayWeather);
+    TomorrowWeatherReport tomorrowReport(tomorrowWeather);
+    YesterdayWeatherReport yesterdayReport(yesterdayWeather);
+
+    cout << "\nHello, " << name << "! Welcome to " << college << "." << endl;
+
+    todayReport.displayTodayReport();
+    tomorrowReport.displayTomorrowReport();
+    yesterdayReport.displayYesterdayReport();
+
+    return 0;
+}
